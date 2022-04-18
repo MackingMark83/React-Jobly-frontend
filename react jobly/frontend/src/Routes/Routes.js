@@ -11,13 +11,7 @@ import PrivateRoute from "./PrivateRoute";
 
 
 function Routes({ login, signup }) {
-  console.debug(
-      "Routes",
-      `login=${typeof login}`,
-      `register=${typeof register}`,
-  );
-
-  return (
+    return (
       <div className="pt-5">
         <Switch>
 

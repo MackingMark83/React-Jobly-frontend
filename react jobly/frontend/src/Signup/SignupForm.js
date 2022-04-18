@@ -15,17 +15,8 @@ function SignupForm({ signup }) {
   });
   const [formErrors, setFormErrors] = useState([]);
 
-  console.debug(
-      "SignupForm",
-      "signup=", typeof signup,
-      "formData=", formData,
-      "formErrors=", formErrors,
-  );
 
-  /** Handle form submit:
-   *
-   * Calls login func prop and, if successful, redirect to /companies.
-   */
+  /** Handle form submit*/
 
   async function handleSubmit(evt) {
     evt.preventDefault();

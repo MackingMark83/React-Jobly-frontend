@@ -3,22 +3,9 @@ import Alert from "../common/Alert";
 import JoblyApi from "../api";
 import UserContext from "../UserContext";
 
-// eslint-disable-next-line
-import useTimedMessage from "../hooks/useTimedMessage";
 
-/** Profile editing form.
- *
- * Displays profile form and handles changes to local form state.
- * Submitting the form calls the API to save, and triggers user reloading
- * throughout the site.
- *
- * Confirmation of a successful save is normally a simple <Alert>, but
- * you can opt-in to our fancy limited-time-display message hook,
- * `useTimedMessage`, but switching the lines below.
- *
- * Routed as /profile
- * Routes -> ProfileForm -> Alert
- */
+
+/** Profile editing form. */
 
 function ProfileForm() {
   const { currentUser, setCurrentUser } = useContext(UserContext);
@@ -33,23 +20,11 @@ function ProfileForm() {
 
   // switch to use our fancy limited-time-display message hook
   const [saveConfirmed, setSaveConfirmed] = useState(false);
-  // const [saveConfirmed, setSaveConfirmed] = useTimedMessage()
+  
 
-  console.debug(
-      "ProfileForm",
-      "currentUser=", currentUser,
-      "formData=", formData,
-      "formErrors=", formErrors,
-      "saveConfirmed=", saveConfirmed,
-  );
+  
 
-  /** on form submit:
-   * - attempt save to backend & report any errors
-   * - if successful
-   *   - clear previous error messages and password
-   *   - show save-confirmed message
-   *   - set current user info throughout the site
-   */
+  /** on form submit */
 
   async function handleSubmit(evt) {
     evt.preventDefault();
@@ -76,7 +51,7 @@ function ProfileForm() {
     setFormErrors([]);
     setSaveConfirmed(true);
 
-    // trigger reloading of user information throughout the site
+    
     setCurrentUser(updatedUser);
   }
 
